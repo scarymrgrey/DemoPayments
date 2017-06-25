@@ -2,7 +2,7 @@ namespace Incoding.MvcContrib
 {
     using System;
     using System.Linq.Expressions;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Maybe;
 
     public class IncStaticControl<TModel, TProperty> : IncControlBase

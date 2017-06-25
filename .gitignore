@@ -1,2 +1,4 @@
 packages/
 Incoding/obj/
+obj/
+.vs/

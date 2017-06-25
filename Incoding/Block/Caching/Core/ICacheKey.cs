@@ -1,11 +1,6 @@
 namespace Incoding.Block.Caching
 {
-    #region << Using >>
-
     using System.Diagnostics.CodeAnalysis;
-
-    #endregion
-
     public interface ICacheKey
     {
         #region Methods

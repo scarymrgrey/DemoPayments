@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace Incoding.ExpressionSerialization
 {
     #region << Using >>

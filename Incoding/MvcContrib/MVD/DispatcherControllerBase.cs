@@ -3,7 +3,7 @@
     #region << Using >>
 
     using System.Linq;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.CQRS;
     using Incoding.Extensions;
 

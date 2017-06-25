@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Text;
     using System.Web;
-    using System.Web.Routing;
+ using Microsoft.AspNetCore.Routing;
     using Incoding.CQRS;
     using Incoding.Extensions;
     using JetBrains.Annotations;

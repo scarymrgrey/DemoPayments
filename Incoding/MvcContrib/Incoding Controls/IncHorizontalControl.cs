@@ -4,7 +4,7 @@ namespace Incoding.MvcContrib
 
     using System;
     using System.Text;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Extensions;
     using Incoding.Maybe;
 

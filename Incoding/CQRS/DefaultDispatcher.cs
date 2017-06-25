@@ -1,6 +1,5 @@
 namespace Incoding.CQRS
 {
-    #region << Using >>
 
     using System;
     using System.Collections.Generic;
@@ -11,8 +10,6 @@ namespace Incoding.CQRS
     using Incoding.Data;
     using Incoding.Maybe;
     using Incoding.MvcContrib.MVD;
-
-    #endregion
 
     public class DefaultDispatcher : IDispatcher
     {

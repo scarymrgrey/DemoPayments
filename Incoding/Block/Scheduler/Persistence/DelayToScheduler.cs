@@ -1,8 +1,9 @@
-﻿using System.Web.UI.WebControls;
+﻿
+using System.ComponentModel;
 
 namespace Incoding.Block
 {
-    #region << Using >>
+
 
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -18,7 +19,7 @@ namespace Incoding.Block
     using JetBrains.Annotations;
     using Raven.Imports.Newtonsoft.Json;
 
-    #endregion
+  
 
     public class DelayToScheduler : IncEntityBase
     {
@@ -172,7 +173,7 @@ namespace Incoding.Block
         [UsedImplicitly, ExcludeFromCodeCoverage]
         public class Map : NHibernateEntityMap<DelayToScheduler>
         {
-            #region Constructors
+         
 
             protected Map()
             {
@@ -201,28 +202,8 @@ namespace Incoding.Block
                                              });
             }
 
-            #endregion
+    
         }
-
-        [UsedImplicitly, Obsolete(ObsoleteMessage.ClassNotForDirectUsage, true), ExcludeFromCodeCoverage]
-        public class EfMap : EFClassMap<DelayToScheduler>
-        {
-            public override void OnModelCreating(DbModelBuilder modelBuilder)
-            {
-                modelBuilder.ComplexType<GetRecurrencyDateQuery>()
-                            .Ignore(r => r.Result)
-                            .Ignore(r => r.Setting);
-                base.OnModelCreating(modelBuilder);
-            }
-
-            public override void OnModel(EntityTypeConfiguration<DelayToScheduler> entity)
-            {
-                entity.HasKey(r => r.Id)
-                      .Property(r => r.Id)
-                      .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            }
-        }
-
         #endregion
     }
 }

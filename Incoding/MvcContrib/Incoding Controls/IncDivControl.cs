@@ -1,6 +1,6 @@
 namespace Incoding.MvcContrib
 {
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Extensions;
 
     public class IncDivControl : IncControlBase

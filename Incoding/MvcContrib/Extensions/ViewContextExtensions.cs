@@ -3,7 +3,7 @@ namespace Incoding.MvcContrib
     #region << Using >>
 
     using System;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using JetBrains.Annotations;
 
     #endregion

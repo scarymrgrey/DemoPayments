@@ -5,7 +5,7 @@ namespace Incoding.MvcContrib
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq.Expressions;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Block.IoC;
     using Incoding.CQRS;
     using Incoding.Extensions;

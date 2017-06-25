@@ -1,14 +1,15 @@
-﻿namespace Incoding.MvcContrib
+﻿using Microsoft.AspNetCore.Mvc.ViewFeatures;
+
+namespace Incoding.MvcContrib
 {
     #region << Using >>
 
     using System;
-    using System.Web;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-    using System.Web.WebPages;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Routing;
     using Incoding.Extensions;
     using Incoding.Maybe;
+
 
     #endregion
 

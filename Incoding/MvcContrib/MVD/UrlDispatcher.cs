@@ -9,12 +9,13 @@
     using System.Linq;
     using System.Reflection;
     using System.Runtime.Serialization;
-    using System.Web.Mvc;
-    using System.Web.Routing;
+ using Microsoft.AspNetCore.Routing;
     using Incoding.Extensions;
     using Incoding.Maybe;
     using Incoding.Quality;
     using JetBrains.Annotations;
+    using Microsoft.AspNetCore.Routing;
+    using Microsoft.AspNetCore.Mvc.Routing;
 
     #endregion
 

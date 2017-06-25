@@ -3,12 +3,14 @@ namespace Incoding.MvcContrib
     #region << Using >>
 
     using System;
-    using System.Web.Mvc;
-    using System.Web.Routing;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Block.IoC;
     using Incoding.Extensions;
     using Incoding.Maybe;
     using JetBrains.Annotations;
+    using Microsoft.AspNetCore.Mvc.ViewFeatures;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using Microsoft.AspNetCore.Routing;
 
     #endregion
 

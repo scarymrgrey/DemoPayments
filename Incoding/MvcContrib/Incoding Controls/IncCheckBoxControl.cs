@@ -5,7 +5,7 @@ namespace Incoding.MvcContrib
     using System;
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using System.Web.Mvc.Html;
     using Incoding.Extensions;
     using Raven.Abstractions.Extensions;

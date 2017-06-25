@@ -4,7 +4,7 @@ namespace Incoding.MvcContrib
 
     using System.Linq;
     using System.Linq.Expressions;
-    using System.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
     using Incoding.Extensions;
 
     #endregion

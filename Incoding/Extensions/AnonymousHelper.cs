@@ -1,18 +1,11 @@
 namespace Incoding.Extensions
 {
-    #region << Using >>
-
     using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Web.Routing;
-
-    #endregion
+    using Microsoft.AspNetCore.Routing;
 
     public static class AnonymousHelper
     {
-        #region Factory constructors
-
-        
+ 
         public static RouteValueDictionary ToDictionary(object anonymous)
         {
             if (anonymous == null)
@@ -23,7 +16,5 @@ namespace Incoding.Extensions
 
             return anonymous as RouteValueDictionary ?? new RouteValueDictionary(anonymous);
         }
-
-        #endregion
     }
 }
