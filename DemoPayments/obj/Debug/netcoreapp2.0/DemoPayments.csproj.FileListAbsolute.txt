@@ -1,0 +1,13 @@
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\x86\e_sqlite3.dll
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\x64\e_sqlite3.dll
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\DemoPayments.deps.json
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\DemoPayments.runtimeconfig.json
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\DemoPayments.runtimeconfig.dev.json
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\DemoPayments.dll
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\bin\Debug\netcoreapp2.0\DemoPayments.pdb
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\DemoPayments.csprojResolveAssemblyReference.cache
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\DemoPayments.csproj.CoreCompileInputs.cache
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\DemoPayments.AssemblyInfo.cs
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\DemoPayments.dll
+C:\Users\Tom\Source\Repos\DemoPayments\DemoPayments\obj\Debug\netcoreapp2.0\DemoPayments.pdb
