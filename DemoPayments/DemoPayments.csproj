@@ -20,4 +20,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0-preview1-final" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\CQRS\CQRS.csproj" />
+    <ProjectReference Include="..\Opertations\Operations.csproj" />
+  </ItemGroup>
+
 </Project>
