@@ -1,6 +1,5 @@
 namespace Incoding.Data
 {
-    #region << Using >>
 
     using System;
     using System.Collections.Generic;
@@ -12,7 +11,6 @@ namespace Incoding.Data
     using NHibernate.Linq;
     using NHibernate.Persister.Entity;
 
-    #endregion
 
     public class NhibernateRepository : IRepository
     {

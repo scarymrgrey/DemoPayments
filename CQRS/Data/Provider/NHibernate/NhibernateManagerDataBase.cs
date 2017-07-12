@@ -1,13 +1,11 @@
-namespace Incoding.Data
+using System;
+using FluentNHibernate.Cfg;
+using Incoding.Data;
+using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
+
+namespace CQRS.Data.Provider.NHibernate
 {
-    #region << Using >>
-
-    using System;
-    using FluentNHibernate.Cfg;
-    using NHibernate.Cfg;
-    using NHibernate.Tool.hbm2ddl;
-
-    #endregion
 
     ////ncrunch: no coverage start
     public class NhibernateManagerDataBase : IManagerDataBase

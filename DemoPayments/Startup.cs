@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Incoding.Data;
 using Microsoft.IdentityModel.Protocols;
 using NHibernate.Context;
 using NHibernate.Tool.hbm2ddl;
 using Operations.Persistance;
+using CQRS.Data.Provider.NHibernate;
 
 namespace DemoPayments
 {
@@ -23,7 +23,7 @@ namespace DemoPayments
             var configure = Fluently
                 .Configure()
                 .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("BloggingDatabase")))
+                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("Main")))
                 .CurrentSessionContext<CallSessionContext>()
                 .Mappings(configuration => configuration.FluentMappings
                     .AddFromAssembly(typeof(User).Assembly));
