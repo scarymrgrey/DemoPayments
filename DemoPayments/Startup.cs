@@ -28,7 +28,8 @@ namespace DemoPayments
                 .Mappings(configuration => configuration.FluentMappings
                     .AddFromAssembly(typeof(User).Assembly));
             var dbManager = new NhibernateManagerDataBase(configure);
-            dbManager
+            if (!dbManager.isExist())
+                dbManager.Create();
 
         }
 

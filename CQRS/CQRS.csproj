@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.1.3" />
+    <PackageReference Include="JetBrains.Annotations" Version="10.2.1" />
+    <PackageReference Include="EnyimMemcached" Version="2.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="DryIoc.dll" Version="2.2.2" />
+    <PackageReference Include="RavenDB.Client" Version="2.5.2971" />
+    <PackageReference Include="RavenDB.Client.Contrib" Version="2.5.0" />
+    <PackageReference Include="FluentNHibernate" Version="2.0.3.0" />
+    <PackageReference Include="NHibernate" Version="4.0.4.4000" />
+    <PackageReference Include="mongocsharpdriver" Version="1.9.0" />
+    <PackageReference Include="Iesi.Collections" Version="4.0.1.4000" />
+    <PackageReference Include="Ninject" Version="3.2.2.0" />
+    <PackageReference Include="StructureMap" Version="4.4.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.0" />
+    <PackageReference Include="SimpleInjector" Version="3.1.2" />
+    <PackageReference Include="FluentValidation.MVC3-Signed" version="5.0.0.3" />
+    <PackageReference Include="FluentValidation-Signed" version="5.0.0.1" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
