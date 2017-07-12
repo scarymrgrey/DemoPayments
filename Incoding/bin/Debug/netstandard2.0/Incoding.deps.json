@@ -18,6 +18,7 @@
           "Handlebars.Net": "1.6.4",
           "Iesi.Collections": "4.0.1.4000",
           "JetBrains.Annotations": "10.4.0",
+          "Microsoft.AspNetCore.Mvc.Core": "1.1.0",
           "Microsoft.AspNetCore.Mvc.ViewFeatures": "1.1.0",
           "Microsoft.AspNetCore.Routing.Abstractions": "1.1.0",
           "Microsoft.CompilerServices.AsyncTargetingPack": "1.0.1",
@@ -30,6 +31,7 @@
           "RavenDB.Client.Contrib": "2.5.0",
           "SimpleInjector": "3.1.2",
           "StructureMap": "4.4.2",
+          "System.Reflection.Emit": "4.3.0",
           "mongocsharpdriver": "1.9.0",
           "mustache-sharp": "0.2.9"
         },

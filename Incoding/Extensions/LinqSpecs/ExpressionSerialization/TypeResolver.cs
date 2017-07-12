@@ -2,18 +2,14 @@ using System.Linq;
 
 namespace Incoding.ExpressionSerialization
 {
-    #region << Using >>
-
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
     using System.Reflection.Emit;
-    using System.Threading;
+   
     using System.Xml.Linq;
-
-    #endregion
 
     // This code is taken from the codeplex project Jammer.NET
     // you can find the project under http://jmr.codeplex.com/
@@ -50,8 +46,8 @@ namespace Incoding.ExpressionSerialization
         {
             var asmname = new AssemblyName();
             asmname.Name = "AnonymousTypes";
-            var assemblyBuilder = Thread.GetDomain().DefineDynamicAssembly(asmname, AssemblyBuilderAccess.Run); // RunAndSave);
-            this.moduleBuilder = assemblyBuilder.DefineDynamicModule("AnonymousTypes");
+           // var assemblyBuilder = Thread.GetDomain().DefineDynamicAssembly(asmname, AssemblyBuilderAccess.Run); // RunAndSave);
+            //this.moduleBuilder = assemblyBuilder.DefineDynamicModule("AnonymousTypes");
         }
 
         #endregion
@@ -164,7 +160,7 @@ namespace Incoding.ExpressionSerialization
             // TODO - Define ToString() and GetHashCode implementations for our generated Anonymous Types
             // MethodBuilder toStringBuilder = anonTypeBuilder.DefineMethod();
             // MethodBuilder getHashCodeBuilder = anonTypeBuilder.DefineMethod();
-            var anonType = anonTypeBuilder.CreateType();
+            var anonType = anonTypeBuilder.CreateTypeInfo();
             this.anonymousTypes.Add(id, anonType);
             return anonType;
         }
