@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operations", "Opertations\O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS", "CQRS\CQRS.csproj", "{804B3203-B62A-48F3-94E7-77883EBDAEFA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHibernate", "NHibernate\NHibernate.csproj", "{5520E877-2D3D-4E4A-A4D5-C7A3084DF141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NHibernateNetCore", "NHibernate\NHibernateNetCore.csproj", "{5520E877-2D3D-4E4A-A4D5-C7A3084DF141}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentNHibernateNetStandard", "FluentNHibernateNetStandard\FluentNHibernateNetStandard.csproj", "{560729C4-1217-42EE-A497-BD79626579C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ORM", "ORM", "{030FEB1F-4CB2-429B-A996-989A4B2063E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,5 +71,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5520E877-2D3D-4E4A-A4D5-C7A3084DF141} = {030FEB1F-4CB2-429B-A996-989A4B2063E6}
+		{560729C4-1217-42EE-A497-BD79626579C0} = {030FEB1F-4CB2-429B-A996-989A4B2063E6}
 	EndGlobalSection
 EndGlobal

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NHibernate\NHibernate.csproj" />
+    <ProjectReference Include="..\NHibernate\NHibernateNetCore.csproj" />
   </ItemGroup>
 
 </Project>
