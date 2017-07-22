@@ -24,11 +24,9 @@ namespace DemoPayments
                 .Configure()
                 .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
                 .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("Main")))
-                .CurrentSessionContext<CallSessionContext>()
                 .Mappings(configuration => configuration.FluentMappings
                     .AddFromAssembly(typeof(User).Assembly));
             var dbManager = new NhibernateManagerDataBase(configure);
-            if (!dbManager.isExist())
                 dbManager.Create();
 
         }

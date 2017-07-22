@@ -24,9 +24,9 @@ namespace CQRS.Data.Provider.NHibernate
 
         public NhibernateManagerDataBase(Configuration configuration)
         {
-            this.schemaExport = new Lazy<SchemaExport>(() => new SchemaExport(configuration));
-            this.schemaUpdate = new Lazy<SchemaUpdate>(() => new SchemaUpdate(configuration));
-            this.schemaValidate = new Lazy<SchemaValidator>(() => new SchemaValidator(configuration));
+            schemaExport = new Lazy<SchemaExport>(() => new SchemaExport(configuration));
+            schemaUpdate = new Lazy<SchemaUpdate>(() => new SchemaUpdate(configuration));
+            schemaValidate = new Lazy<SchemaValidator>(() => new SchemaValidator(configuration));
         }
 
         public NhibernateManagerDataBase(FluentConfiguration builderConfiguration)
@@ -38,7 +38,7 @@ namespace CQRS.Data.Provider.NHibernate
 
         public void Create()
         {
-            this.schemaExport.Value.Create(true, true);
+            schemaExport.Value.Create(true, true);
         }
 
         public bool isExist()
@@ -48,7 +48,7 @@ namespace CQRS.Data.Provider.NHibernate
 
         public void Drop()
         {
-            this.schemaExport.Value.Drop(false, true);
+            schemaExport.Value.Drop(false, true);
         }
 
         public void Update()

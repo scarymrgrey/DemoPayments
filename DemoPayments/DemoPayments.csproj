@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CQRS\CQRS.csproj" />
+    <ProjectReference Include="..\FluentNHibernateNetStandard\FluentNHibernateNetStandard.csproj" />
     <ProjectReference Include="..\Opertations\Operations.csproj" />
   </ItemGroup>
 
