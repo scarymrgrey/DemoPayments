@@ -20,7 +20,7 @@
 
     public class RavenDbRepository : IRepository
     {
-        #region Static Fields
+
 
         static readonly MethodInfo save = typeof(RavenDbRepository).GetMethod("Save");
 
@@ -28,15 +28,9 @@
 
         static readonly ConcurrentDictionary<Type, IEnumerable<PropertyInfo>> cache = new ConcurrentDictionary<Type, IEnumerable<PropertyInfo>>();
 
-        #endregion
-
-        #region Fields
 
         readonly IDocumentSession session;
-        
-        #endregion
 
-        #region Constructors
 
         public RavenDbRepository(IDocumentSession session)
         {
@@ -45,9 +39,6 @@
 
         public RavenDbRepository() { }
 
-        #endregion
-
-        #region IRepository Members
 
         [UsedImplicitly, ExcludeFromCodeCoverage]
         public void ExecuteSql(string sql)
@@ -99,7 +90,7 @@
             session.Store(entity);
         }
 
-        public void Delete<TEntity>(object id) where TEntity : class, IEntity, new()
+        public void Delete<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             Delete(LoadById<TEntity>(id));
         }
@@ -119,7 +110,7 @@
                                                                           allowStale: true);
         }
 
-        public TEntity GetById<TEntity>(object id) where TEntity : class, IEntity, new()
+        public TEntity GetById<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             if (id == null)
                 return null;
@@ -129,7 +120,7 @@
                            : session.Load<TEntity>((ValueType)id);
         }
 
-        public TEntity LoadById<TEntity>(object id) where TEntity : class, IEntity, new()
+        public TEntity LoadById<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             return GetById<TEntity>(id);
         }
@@ -151,13 +142,6 @@
             throw new NotImplementedException();
         }
 
-        public void DeleteByIds<TEntity>(IEnumerable<object> ids) where TEntity : class, IEntity, new()
-        {
-            foreach (var id in ids)
-                Delete<TEntity>(id);
-        }
-
-        #endregion
 
         IRavenQueryable<TEntity> GetRavenQueryable<TEntity>()
         {

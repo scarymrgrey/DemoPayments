@@ -1,17 +1,18 @@
-﻿namespace Incoding.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace Incoding.Data
 {
     #region << Using >>
 
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq.Expressions;
     using JetBrains.Annotations;
 
     #endregion
 
-    public class AdHocFetchEFSpecification<TEntity> : AdHocFetchSpecificationBase<TEntity>
+    public class AdHocFetchEFSpecification<TEntity> : AdHocFetchSpecificationBase<TEntity> where TEntity : class
     {
         public override AdHocFetchSpecificationBase<TEntity> Join<TValue>(Expression<Func<TEntity, TValue>> expression)
         {

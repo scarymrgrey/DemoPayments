@@ -19,7 +19,7 @@ namespace Incoding.CQRS
         public GetEntityByIdQuery() { }
 
         ////ncrunch: no coverage start
-        public GetEntityByIdQuery(object id)
+        public GetEntityByIdQuery(int id)
         {
             Id = id;
         }
@@ -29,7 +29,7 @@ namespace Incoding.CQRS
         ////ncrunch: no coverage end
         #region Properties
 
-        public object Id { get; set; }
+        public int Id { get; set; }
 
         #endregion
 

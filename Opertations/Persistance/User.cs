@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 using Incoding.Data;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Operations.Persistance
 {
    public class User : EntityBase
     {
-        public virtual string Name { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
 
-        public class Map : NHibernateEntityMap<User>
+        public class Map : EFClassMap<User>
         {
-            protected Map()
+            public override void OnModel(EntityTypeBuilder<User> entity)
             {
-                Id(r => r.Id).GeneratedBy.Assigned();
-                MapEscaping(r => r.Name);
+                entity.HasKey(r => r.Id);
+                entity.Property(r => r.Name);
+                entity.Property(r => r.Age);
             }
         }
     }

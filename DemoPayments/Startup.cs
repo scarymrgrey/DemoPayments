@@ -1,24 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentNHibernate.Cfg;
-using FluentNHibernate.Cfg.Db;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Protocols;
-using NHibernate.Context;
-using NHibernate.Tool.hbm2ddl;
 using Operations.Persistance;
-using CQRS.Data.Provider.NHibernate;
-using FluentValidation;
-using Incoding.Block;
 using Incoding.Block.IoC;
 using Incoding.CQRS;
 using Incoding.Data;
-using SimpleInjector;
 
 namespace DemoPayments
 {
@@ -29,15 +16,7 @@ namespace DemoPayments
             IoCFactory.Instance.Initialize(init => init.WithProvider(new SimpleInjectorIoCProvider(container =>
             {
                 container.Register<IDispatcher>(()=> new DefaultDispatcher());
-                var configure = Fluently
-                    .Configure()
-                    .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                    .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("Main")))
-                    .Mappings(configuration => configuration.FluentMappings
-                        .AddFromAssembly(typeof(User).Assembly));
-
-                container.Register<IManagerDataBase>(() => new NhibernateManagerDataBase(configure),Lifestyle.Singleton);
-                container.Register<IUnitOfWorkFactory>(() => new NhibernateUnitOfWorkFactory(new NhibernateSessionFactory(configure)));
+                container.Register<IUnitOfWorkFactory>(() => new EntityFrameworkUnitOfWorkFactory(new EntityFrameworkSessionFactory(()=> new IncDbContext(Configuration.GetConnectionString("Main"), typeof(User).Assembly))));
             })));
         }
 

@@ -9,8 +9,6 @@ namespace Incoding.Data
 
     public interface IRepository
     {
-        #region Methods
-
         void ExecuteSql(string sql);
 
         TProvider GetProvider<TProvider>() where TProvider:class;
@@ -46,14 +44,13 @@ namespace Incoding.Data
         /// </summary>
         /// <typeparam name="TEntity">Type entity</typeparam>
         /// <param name="id">Id</param>
-        void Delete<TEntity>(object id) where TEntity : class, IEntity, new();
+        void Delete<TEntity>(int id) where TEntity : class, IEntity, new();
 
         /// <summary>
         ///     Delete a entity from the datastore  by ids ( don't support cascade )
         /// </summary>
         /// <typeparam name="TEntity">Type entity</typeparam>
         /// <param name="ids">Ids</param>
-        void DeleteByIds<TEntity>(IEnumerable<object> ids) where TEntity : class, IEntity, new();
 
         /// <summary>
         ///     Delete a entity instance from the datastore
@@ -66,7 +63,7 @@ namespace Incoding.Data
         ///     Delete all entities
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
-        void DeleteAll<TEntity>() where TEntity : class, IEntity, new();
+
 
         /// <summary>
         ///     Getting entity instance from persist
@@ -74,7 +71,7 @@ namespace Incoding.Data
         /// <typeparam name="TEntity">Strong type entity</typeparam>
         /// <param name="id">Primary key</param>
         /// <returns> Instance entity </returns>
-        TEntity GetById<TEntity>(object id) where TEntity : class, IEntity, new();
+        TEntity GetById<TEntity>(int id) where TEntity : class, IEntity, new();
 
         /// <summary>
         ///     Getting entity instance from persist or cache
@@ -82,7 +79,7 @@ namespace Incoding.Data
         /// <typeparam name="TEntity">Strong type entity</typeparam>
         /// <param name="id">Primary key</param>
         /// <returns> Instance entity </returns>
-        TEntity LoadById<TEntity>(object id) where TEntity : class, IEntity, new();
+        TEntity LoadById<TEntity>(int id) where TEntity : class, IEntity, new();
 
         /// <summary>
         ///     Query entities with specifications
@@ -135,6 +132,5 @@ namespace Incoding.Data
         /// </summary>
         void Clear();
 
-        #endregion
     }
 }

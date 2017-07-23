@@ -13,7 +13,7 @@ namespace Incoding.Data
         #region IEntity Members
 
 
-        public virtual object Id { get; protected set; }
+        public int Id { get; protected set; }
 
         #endregion
 

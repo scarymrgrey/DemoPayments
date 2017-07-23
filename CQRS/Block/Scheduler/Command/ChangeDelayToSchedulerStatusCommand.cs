@@ -10,7 +10,7 @@
     {
         protected override void Execute()
         {
-            var delay = Repository.GetById<DelayToScheduler>(Id);
+            var delay = Repository.GetById<DelayToScheduler>(int.Parse(Id));
             delay.Status = Status;
             delay.Description = Description;
 

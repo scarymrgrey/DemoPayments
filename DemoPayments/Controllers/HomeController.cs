@@ -5,6 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DemoPayments.Models;
+using Incoding.Block.IoC;
+using Incoding.CQRS;
+using Operations.Query;
+using Operations;
 
 namespace DemoPayments.Controllers
 {
@@ -12,6 +16,7 @@ namespace DemoPayments.Controllers
     {
         public IActionResult Index()
         {
+        
             return View();
         }
 
@@ -32,6 +37,13 @@ namespace DemoPayments.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public IActionResult CreateUserCommand(CreateUserCommand command)
+        {
+            IoCFactory.Instance.TryResolve<IDispatcher>().Push(command);
+            return RedirectToAction("Index");
         }
     }
 }

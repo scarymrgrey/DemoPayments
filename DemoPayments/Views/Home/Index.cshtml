@@ -1,3 +1,18 @@
-﻿@{
+﻿@using Incoding.Block.IoC
+@using Incoding.CQRS
+@using Operations.Query
+@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    foreach (var user in IoCFactory.Instance.TryResolve<IDispatcher>().Query(new GetUsersQuery()))
+    {
+        <h3>@user.Age : @user.Name</h3>
+    }
+}
+
+<form asp-action="Index">
+    Name :<input name="Name"/>
+    Age: <input name="Age"/>
+    <input type="submit">
+</form>

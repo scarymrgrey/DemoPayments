@@ -62,7 +62,7 @@
 
         public void SaveOrUpdate<TEntity>(TEntity entity) where TEntity : class, IEntity, new()
         {
-            var id = entity.TryGetValue("Id");
+            var id = (int)entity.TryGetValue("Id");
             if (GetById<TEntity>(id) == null)
             {
                 Save(entity);
@@ -112,21 +112,17 @@
             GetCollection<TEntity>().Update(MongoDB.Driver.Builders.Query<TEntity>.EQ(r => r.Id, id), update);
         }
 
-        public void Delete<TEntity>(object id) where TEntity : class, IEntity, new()
+        public void Delete<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             var query = MongoDB.Driver.Builders.Query<TEntity>.EQ(r => r.Id, id);
             GetCollection<TEntity>().Remove(query);
         }
 
-        public void DeleteByIds<TEntity>(IEnumerable<object> ids) where TEntity : class, IEntity, new()
-        {
-            var query = MongoDB.Driver.Builders.Query<TEntity>.In(r => r.Id, ids);
-            GetCollection<TEntity>().Remove(query);
-        }
+   
 
         public void Delete<TEntity>(TEntity entity) where TEntity : class, IEntity, new()
         {
-            Delete<TEntity>(entity.TryGetValue("Id"));
+            Delete<TEntity>((int)entity.TryGetValue("Id"));
         }
 
         public void DeleteAll<TEntity>() where TEntity : class, IEntity, new()
@@ -134,7 +130,7 @@
             GetCollection<TEntity>().RemoveAll();
         }
 
-        public TEntity GetById<TEntity>(object id) where TEntity : class, IEntity, new()
+        public TEntity GetById<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             if (id == null)
                 return null;
@@ -142,7 +138,7 @@
             return GetCollection<TEntity>().FindOne(query);
         }
 
-        public TEntity LoadById<TEntity>(object id) where TEntity : class, IEntity, new()
+        public TEntity LoadById<TEntity>(int id) where TEntity : class, IEntity, new()
         {
             return GetById<TEntity>(id);
         }
