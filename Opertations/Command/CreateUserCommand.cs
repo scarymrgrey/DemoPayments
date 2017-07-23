@@ -9,7 +9,8 @@ namespace Operations
         public string Name { get; set; }
         protected override void Execute()
         {
-            Repository.Save(new User() { Age = Age, Name = Name });
+            var entity = new User() { Age = Age, Name = Name };
+            Repository.Save(entity);
         }
     }
 }

@@ -4,3 +4,4 @@ obj/
 .vs/
 Opertations/bin/Debug/netstandard2.0/Operations.deps.json
 DemoPayments/bin/Debug/netcoreapp2.0/DemoPayments.deps.json
+CQRS/bin/

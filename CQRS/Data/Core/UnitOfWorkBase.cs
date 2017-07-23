@@ -9,16 +9,12 @@
     public abstract class UnitOfWorkBase<TSession> : IUnitOfWork
             where TSession : class, IDisposable
     {
-        #region Constructors
+ 
 
         protected UnitOfWorkBase(TSession session)
         {
             this.session = session;
         }
-
-        #endregion
-
-        #region Disposable
 
         public void Dispose()
         {
@@ -30,8 +26,6 @@
 
             disposed = true;
         }
-
-        #endregion
 
         protected abstract void InternalSubmit();
 
@@ -49,8 +43,6 @@
 
         #endregion
 
-        #region IUnitOfWork Members
-
         public IRepository GetRepository()
         {
             return repository;
@@ -66,7 +58,5 @@
             if (!disposed)
                 InternalFlush();
         }
-
-        #endregion
     }
 }
