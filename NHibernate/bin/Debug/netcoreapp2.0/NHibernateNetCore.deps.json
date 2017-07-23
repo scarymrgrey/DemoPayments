@@ -6,12 +6,18 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "FluentNHibernateNetStandard/1.0.0": {
+      "NHibernateNetCore/1.0.0": {
         "dependencies": {
-          "NHibernateNetCore": "1.0.0"
+          "Antlr3": "3.5.1",
+          "Antlr3.Runtime": "3.5.1",
+          "Remotion.Linq": "1.15.15",
+          "System.CodeDom": "4.4.0-preview1-25305-02",
+          "System.Configuration.ConfigurationManager": "4.4.0-preview1-25305-02",
+          "System.Data.SqlClient": "4.4.0-preview1-25305-02",
+          "Iesi.Collections": "4.0.1.4000"
         },
         "runtime": {
-          "FluentNHibernateNetStandard.dll": {}
+          "NHibernateNetCore.dll": {}
         }
       },
       "Antlr3/3.5.1": {
@@ -163,25 +169,11 @@
             "assetType": "runtime"
           }
         }
-      },
-      "NHibernateNetCore/1.0.0": {
-        "dependencies": {
-          "Antlr3": "3.5.1",
-          "Antlr3.Runtime": "3.5.1",
-          "Remotion.Linq": "1.15.15",
-          "System.CodeDom": "4.4.0-preview1-25305-02",
-          "System.Configuration.ConfigurationManager": "4.4.0-preview1-25305-02",
-          "System.Data.SqlClient": "4.4.0-preview1-25305-02",
-          "Iesi.Collections": "4.0.1.4000"
-        },
-        "runtime": {
-          "NHibernateNetCore.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "FluentNHibernateNetStandard/1.0.0": {
+    "NHibernateNetCore/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -297,11 +289,6 @@
       "sha512": "sha512-Uh+GbD7Fa8yFuSeQ8LffAd01WmXDoW6ZazE6k6iBQtP5ywjvb2b0nKtSaOJYn2ZwLQOsCoHe8s3XEYkhmiuuBw==",
       "path": "system.text.encoding.codepages/4.4.0-preview1-25305-02",
       "hashPath": "system.text.encoding.codepages.4.4.0-preview1-25305-02.nupkg.sha512"
-    },
-    "NHibernateNetCore/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

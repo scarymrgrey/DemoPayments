@@ -13,28 +13,38 @@ using NHibernate.Context;
 using NHibernate.Tool.hbm2ddl;
 using Operations.Persistance;
 using CQRS.Data.Provider.NHibernate;
+using FluentValidation;
+using Incoding.Block;
+using Incoding.Block.IoC;
+using Incoding.CQRS;
+using Incoding.Data;
+using SimpleInjector;
 
 namespace DemoPayments
 {
     public class Startup
     {
-        void configureDataBase()
+        void configureIoC()
         {
-            var configure = Fluently
-                .Configure()
-                .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
-                .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("Main")))
-                .Mappings(configuration => configuration.FluentMappings
-                    .AddFromAssembly(typeof(User).Assembly));
-            var dbManager = new NhibernateManagerDataBase(configure);
-                dbManager.Create();
+            IoCFactory.Instance.Initialize(init => init.WithProvider(new SimpleInjectorIoCProvider(container =>
+            {
+                container.Register<IDispatcher>(()=> new DefaultDispatcher());
+                var configure = Fluently
+                    .Configure()
+                    .ExposeConfiguration(cfg => new SchemaUpdate(cfg).Execute(false, true))
+                    .Database(MsSqlConfiguration.MsSql2012.ConnectionString(Configuration.GetConnectionString("Main")))
+                    .Mappings(configuration => configuration.FluentMappings
+                        .AddFromAssembly(typeof(User).Assembly));
 
+                container.Register<IManagerDataBase>(() => new NhibernateManagerDataBase(configure),Lifestyle.Singleton);
+                container.Register<IUnitOfWorkFactory>(() => new NhibernateUnitOfWorkFactory(new NhibernateSessionFactory(configure)));
+            })));
         }
 
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            configureDataBase();
+            configureIoC();
         }
 
         public IConfiguration Configuration { get; }

@@ -1216,13 +1216,13 @@
       },
       "FluentNHibernateNetStandard/1.0.0": {
         "dependencies": {
-          "NHibernate": "1.0.0"
+          "NHibernateNetCore": "1.0.0"
         },
         "runtime": {
           "FluentNHibernateNetStandard.dll": {}
         }
       },
-      "NHibernate/1.0.0": {
+      "NHibernateNetCore/1.0.0": {
         "dependencies": {
           "Antlr3": "3.5.1",
           "Antlr3.Runtime": "3.5.1",
@@ -1233,7 +1233,7 @@
           "Iesi.Collections": "4.0.1.4000"
         },
         "runtime": {
-          "NHibernate.dll": {}
+          "NHibernateNetCore.dll": {}
         }
       }
     }
@@ -2110,7 +2110,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "NHibernate/1.0.0": {
+    "NHibernateNetCore/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
