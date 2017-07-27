@@ -5,11 +5,11 @@ namespace Operations
 {
     public class CreateUserCommand : CommandBase
     {
-        public int Age { get; set; }
-        public string Name { get; set; }
+        public string Password { get; set; }
+        public string Login { get; set; }
         protected override void Execute()
         {
-            var entity = new User() { Age = Age, Name = Name };
+            var entity = new User() { Password = Password, Login = Login };
             Repository.Save(entity);
         }
     }

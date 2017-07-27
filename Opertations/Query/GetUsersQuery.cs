@@ -9,16 +9,16 @@ namespace Operations.Query
     {
         public class Response
         {
-            public int Age { get; set; }
-            public string Name { get; set; }
+            public string Password { get; set; }
+            public string Login { get; set; }
         }
 
         protected override List<Response> ExecuteResult()
         {
             var responses = Repository.Query<User>().Select(r => new Response()
             {
-                Name = r.Name,
-                Age = r.Age,
+                Login = r.Login,
+                Password = r.Password,
             }).ToList();
             return responses;
         }

@@ -8,16 +8,18 @@ namespace Operations.Persistance
 {
    public class User : EntityBase
     {
-        public string Name { get; set; }
-        public int Age { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
 
         public class Map : EFClassMap<User>
         {
             public override void OnModel(EntityTypeBuilder<User> entity)
             {
                 entity.HasKey(r => r.Id);
-                entity.Property(r => r.Name);
-                entity.Property(r => r.Age);
+                entity.Property(r => r.Login);
+                entity.Property(r => r.Password);
+                entity.Property(r => r.Role);
             }
         }
     }

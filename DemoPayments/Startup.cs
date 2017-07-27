@@ -6,6 +6,7 @@ using Operations.Persistance;
 using Incoding.Block.IoC;
 using Incoding.CQRS;
 using Incoding.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DemoPayments
 {
@@ -32,6 +33,8 @@ namespace DemoPayments
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton(_ => Configuration);
+            services.AddDbContext<IncDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Main")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +50,6 @@ namespace DemoPayments
             }
 
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
