@@ -8,16 +8,16 @@
         [ThreadStatic]
         static DbContext currentSession;
 
-        readonly Func<DbContext> createDb;
+        readonly DbContext createDb;
 
-        public EntityFrameworkSessionFactory(Func<DbContext> createDb)
+        public EntityFrameworkSessionFactory(DbContext createDb)
         {
             this.createDb = createDb;
         }
 
         public DbContext Open(string connectionString)
         {
-            currentSession = this.createDb();
+            currentSession = createDb;
             return currentSession;
         }
     }

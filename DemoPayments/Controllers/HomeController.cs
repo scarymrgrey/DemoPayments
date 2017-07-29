@@ -12,12 +12,14 @@ using Operations;
 
 namespace DemoPayments.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(IDispatcher _dispatcher) : base(_dispatcher)
+        {
+        }
         public IActionResult Index()
         {
-        
-            return View();
+            return View(dispatcher.Query(new GetUsersQuery()));
         }
 
         public IActionResult About()
@@ -42,8 +44,10 @@ namespace DemoPayments.Controllers
         [HttpPost]
         public IActionResult CreateUserCommand(CreateUserCommand command)
         {
-            IoCFactory.Instance.TryResolve<IDispatcher>().Push(command);
+            dispatcher.Push(command);
             return RedirectToAction("Index");
         }
+
+     
     }
 }

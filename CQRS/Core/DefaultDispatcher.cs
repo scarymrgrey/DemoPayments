@@ -19,18 +19,21 @@ namespace Incoding.CQRS
 //        {
 //            interceptions.Add(create);
 //        }
+        public DefaultDispatcher(IUnitOfWorkFactory _uowFactory)
+        {
+            unitOfWorkCollection = new UnitOfWorkCollection(_uowFactory);
+        }
+        readonly UnitOfWorkCollection unitOfWorkCollection;
 
-        #region Fields
-
-        readonly UnitOfWorkCollection unitOfWorkCollection = new UnitOfWorkCollection();
-
-        #endregion
-
-        #region Nested classes
 
         internal class UnitOfWorkCollection : Dictionary<MessageExecuteSetting, Lazy<IUnitOfWork>>, IDisposable
         {
-            #region Disposable
+            private IUnitOfWorkFactory _unitOfWorkFactory;
+            public UnitOfWorkCollection(IUnitOfWorkFactory _uowFactory)
+            {
+                _unitOfWorkFactory = _uowFactory;
+            }
+       
 
             public void Dispose()
             {
@@ -43,29 +46,21 @@ namespace Incoding.CQRS
                 Clear();
             }
 
-            #endregion
-
-            #region Api Methods
-
             public Lazy<IUnitOfWork> AddOrGet(MessageExecuteSetting setting, bool isFlush)
             {
                 if (!ContainsKey(setting))
                 {
                     Add(setting, new Lazy<IUnitOfWork>(() =>
                                                        {
-                                                           var unitOfWorkFactory = string.IsNullOrWhiteSpace(setting.DataBaseInstance)
-                                                                                           ? IoCFactory.Instance.TryResolve<IUnitOfWorkFactory>()
-                                                                                           : IoCFactory.Instance.TryResolveByNamed<IUnitOfWorkFactory>(setting.DataBaseInstance);
-
+                                                     
                                                            var isoLevel = setting.IsolationLevel.GetValueOrDefault(isFlush ? IsolationLevel.ReadCommitted : IsolationLevel.ReadUncommitted);
-                                                           return unitOfWorkFactory.Create(isoLevel, isFlush, setting.Connection);
+                                                           return _unitOfWorkFactory.Create(isoLevel, isFlush, setting.Connection);
                                                        }, LazyThreadSafetyMode.None));
                 }
 
                 return this[setting];
             }
 
-            #endregion
 
             public void Commit()
             {
@@ -78,9 +73,6 @@ namespace Incoding.CQRS
             }
         }
 
-        #endregion
-
-        #region IDispatcher Members
 
         public void Push(CommandComposite composite)
         {
@@ -127,7 +119,5 @@ namespace Incoding.CQRS
             Push(new CommandComposite(message, executeSetting));
             return (TResult)message.Result;
         }
-
-        #endregion
     }
 }
