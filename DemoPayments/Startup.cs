@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using CQRS.Data.Provider.EF;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,8 +27,7 @@ namespace DemoPayments
         {
             services.AddMvc();
             services.AddSingleton(_ => Configuration);
-          
-            services.AddScoped<DbContext>(r => new IncDbContext(Configuration.GetConnectionString("Main"), typeof(User).Assembly));
+            services.AddScoped<DbContext>(r => new IncDbContext(Configuration.GetConnectionString("Main"), MappingCollection<User>.Maps));
             services.AddScoped<IEntityFrameworkSessionFactory, EntityFrameworkSessionFactory>();
             services.AddScoped<IUnitOfWorkFactory,EntityFrameworkUnitOfWorkFactory>();
             services.AddTransient<IDispatcher,DefaultDispatcher>();

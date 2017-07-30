@@ -1,4 +1,6 @@
-﻿namespace Incoding.Data
+﻿using CQRS.Data.Provider.EF;
+
+namespace Incoding.Data
 {
     using System;
     using System.Collections.Generic;
@@ -13,19 +15,11 @@
         readonly List<Type> mapsTypes;
         readonly string connectionString;
 
-        public IncDbContext(string nameOrConnectionString, Assembly mapAssembly)
-                
+        public IncDbContext(string nameOrConnectionString, List<Type> mapAssemblyTypes)
         {
-            this.mapsTypes = mapAssembly.GetTypes()
-                                        .Where(r => r.IsImplement(typeof(EFClassMap<>)) &&
-                                                    !r.IsInterface &&
-                                                    !r.IsAbstract)
-                                        .ToList();
+            mapsTypes = mapAssemblyTypes;
             connectionString = nameOrConnectionString;
         }
-
-        public IncDbContext(string nameOrConnectionString)
-                : this(nameOrConnectionString, Assembly.GetCallingAssembly()) { }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

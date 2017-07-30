@@ -1,7 +1,9 @@
-﻿using Incoding.Data;
+﻿using CQRS.Data.Provider.EF;
+using Incoding.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Operations.Persistance;
 
 namespace Migrations
 {
@@ -15,7 +17,7 @@ namespace Migrations
     {
         public IncDbContext CreateDbContext(string[] args)
         {
-            return new IncDbContext("Data Source=.;Initial Catalog=Main;User ID=sa;Password=win20033;");
+            return new IncDbContext("Data Source=.;Initial Catalog=Main;User ID=sa;Password=win20033;", MappingCollection<User>.Maps);
         }
     }
 }

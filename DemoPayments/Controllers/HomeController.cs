@@ -19,7 +19,7 @@ namespace DemoPayments.Controllers
         }
         public IActionResult Index()
         {
-            return View(dispatcher.Query(new GetUsersQuery()));
+            return View(Dispatcher.Query(new GetUsersQuery()));
         }
 
         public IActionResult About()
@@ -44,7 +44,7 @@ namespace DemoPayments.Controllers
         [HttpPost]
         public IActionResult CreateUserCommand(CreateUserCommand command)
         {
-            dispatcher.Push(command);
+            Dispatcher.Push(command);
             return RedirectToAction("Index");
         }
 

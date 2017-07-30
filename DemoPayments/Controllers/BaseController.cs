@@ -12,10 +12,10 @@ namespace DemoPayments.Controllers
 {
     public class BaseController : Controller
     {
-        public IDispatcher dispatcher;
+        protected readonly IDispatcher Dispatcher;
         public BaseController(IDispatcher _dispatcher)
         {
-            dispatcher = _dispatcher;
+            Dispatcher = _dispatcher;
         }
     }
 }
