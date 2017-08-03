@@ -1,0 +1,40 @@
+<header class="app-header navbar">
+    <a class="navbar-brand" href="#"></a>
+    <ul class="nav navbar-nav mr-auto">
+        <li class="nav-item" *ngFor="let menuItem of nav.navbar" [class.active]="menuItem.isSelected">
+          <a class="nav-link px-3" href="#" (click)="selectMenuItem($event, menuItem)">{{menuItem.title}}</a>
+        </li>
+    </ul>
+</header>
+
+<div class="app-body">
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item nav-dropdown" *ngFor="let subMenu of nav.selectedMenu.subMenu" routerLinkActive="open" [subMenu]="subMenu" [(class.open)]="subMenu.isOpen">
+                  <a class="nav-link nav-dropdown-toggle" subMenuToggle>{{subMenu.title}}</a>
+                  <ul class="nav-dropdown-items">
+                    <li class="nav-item" *ngFor="let subMenuItem of subMenu.items" [(class.active)]="subMenuItem.isSelected">
+                      <a class="nav-link" routerLinkActive="active" (click)="nav.selectedMenu.setSelectedSubItem(subMenuItem)">{{subMenuItem.title}}</a>
+                    </li>
+                  </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main content -->
+    <main class="main">
+
+        <!-- Breadcrumb -->
+<!--         <ol class="breadcrumb">
+            <app-breadcrumbs></app-breadcrumbs>
+        </ol> -->
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+        <!-- /.conainer-fluid -->
+    </main>
+</div>
+
